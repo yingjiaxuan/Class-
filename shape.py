@@ -180,17 +180,19 @@ class Cube(Square):
 def shape_choice():
     if len(shape_list) == 0:
         return
-    shape_num = get_input("Please Select One Shape to Operate:", (1, len(shape_list)))
+    print_all_shape()
+    shape_num = get_input("Please Select One Shape to Operate:\n", (1, len(shape_list)))
+
     shape = shape_list[shape_num - 1]
     shape_name = shape_list[shape_num - 1].getName()
     shape_species = str(shape_name[0:shape_name.rfind(':')])
     if shape_species == "Point":
-        print("Please Select One Choice to Operate the Point:")
+        print("Please Select One Choice to Operate the Point:\n")
         input_data = get_input("1.setName     2.getName       3.getX\n4.getY    5.getArea    6.getVolume\n7.setX      "
-                               "8.setY \n 9.Back to higher menu"
+                               "8.setY \n 9.Back to higher menu\n"
                                , (1, 9))
         if input_data == 1:
-            name = input("Please input Name")
+            name = input("Please input Name: ")
             shape.setName(name)
         elif input_data == 2:
             print(shape.getName())
@@ -213,12 +215,12 @@ def shape_choice():
             return
         shape_choice()
     elif shape_species == "Circle":
-        print("Please Select One Choice to Operate the Circle:")
+        print("Please Select One Choice to Operate the Circle:\n")
         input_data = get_input("1.setName     2.getName       3.getX\n4.getY    5.getArea    6.getVolume\n7.setX      "
-                               "8.setY     9.getRadius\n10.setRadius     11.Back to higher menu"
+                               "8.setY     9.getRadius\n10.setRadius     11.Back to higher menu\n"
                                , (1, 11))
         if input_data == 1:
-            name = input("Please input Name")
+            name = input("Please input Name:")
             shape.setName(name)
         elif input_data == 2:
             print(shape.getName())
@@ -246,13 +248,13 @@ def shape_choice():
             return
         shape_choice()
     elif shape_species == "Cylinder":
-        print("Please Select One Choice to Operate the Cylinder:")
+        print("Please Select One Choice to Operate the Cylinder:\n")
         input_data = get_input("1.setName     2.getName       3.getX\n4.getY    5.getArea    6.getVolume\n7.setX      "
                                "8.setY     9.getRadius\n10.setRadius     11.getHeight   12.setHeight\n13.Back to "
-                               "higher menu "
+                               "higher menu \n"
                                , (1, 13))
         if input_data == 1:
-            name = input("Please input Name")
+            name = input("Please input Name:")
             shape.setName(name)
         elif input_data == 2:
             print(shape.getName())
@@ -284,11 +286,11 @@ def shape_choice():
             view_shape_menu()
             return
         shape_choice()
-    elif shape_species == "Rectangle":
-        print("Please Select One Choice to Operate the Rectangle:")
+    elif shape_species == "Sphere":
+        print("Please Select One Choice to Operate the Sphere:\n")
         input_data = get_input("1.setName     2.getName       3.getX\n4.getY    5.getArea    6.getVolume\n7.setX      "
-                               "8.setY \n 9.Back to higher menu"
-                               , (1, 9))
+                               "8.setY     9.getRadius\n10.setRadius     11.Back to higher menu\n"
+                               , (1, 11))
         if input_data == 1:
             name = input("Please input Name")
             shape.setName(name)
@@ -309,16 +311,59 @@ def shape_choice():
             y = get_input("Please type in y: ", (-100000, 100000), True)
             shape.setY(y)
         elif input_data == 9:
+            print(shape.getRadius())
+        elif input_data == 10:
+            r = get_input("Please type in radius: ", (0, 100000))
+            shape.setRadius(r)
+        elif input_data == 11:
+            view_shape_menu()
+            return
+        shape_choice()
+    elif shape_species == "Rectangle":
+        print("Please Select One Choice to Operate the Rectangle:\n")
+        input_data = get_input("1.setName     2.getName       3.getX\n4.getY    5.getArea    6.getVolume\n7.setX      "
+                               "8.setY     9.getLength\n10.getHeight 11.setLength 12.setHeight \n13.Back to higher menu\n"
+                               , (1, 13))
+        if input_data == 1:
+            name = input("Please input Name")
+            shape.setName(name)
+        elif input_data == 2:
+            print(shape.getName())
+        elif input_data == 3:
+            print(shape.getX())
+        elif input_data == 4:
+            print(shape.getY())
+        elif input_data == 5:
+            print(shape.getArea())
+        elif input_data == 6:
+            print(shape.getVolume())
+        elif input_data == 7:
+            x = get_input("Please type in x: ", (-100000, 100000), True)
+            shape.setX(x)
+        elif input_data == 8:
+            y = get_input("Please type in y: ", (-100000, 100000), True)
+            shape.setY(y)
+        elif input_data == 9:
+            print(shape.getLength())
+        elif input_data == 10:
+            print(shape.getHeight())
+        elif input_data == 11:
+            length = get_input("Please type in length: ", (-100000, 100000), True)
+            shape.setLength(length)
+        elif input_data == 12:
+            height = get_input("Please type in height: ", (-100000, 100000), True)
+            shape.setHeight(height)
+        elif input_data == 13:
             view_shape_menu()
             return
         shape_choice()
     elif shape_species == "Square":
-        print("Please Select One Choice to Operate the Point:")
+        print("Please Select One Choice to Operate the Square:\n")
         input_data = get_input("1.setName     2.getName       3.getX\n4.getY    5.getArea    6.getVolume\n7.setX      "
-                               "8.setY \n 9.Back to higher menu"
-                               , (1, 9))
+                               "8.setY  9.getLength\n10.setLength   11.Back to higher menu\n"
+                               , (1, 11))
         if input_data == 1:
-            name = input("Please input Name")
+            name = input("Please input Name:")
             shape.setName(name)
         elif input_data == 2:
             print(shape.getName())
@@ -337,16 +382,21 @@ def shape_choice():
             y = get_input("Please type in y: ", (-100000, 100000), True)
             shape.setY(y)
         elif input_data == 9:
+            print(shape.getLength())
+        elif input_data == 10:
+            length = get_input("Please type in length: ", (-100000, 100000), True)
+            shape.setLength(length)
+        elif input_data == 11:
             view_shape_menu()
             return
         shape_choice()
     elif shape_species == "Cube":
-        print("Please Select One Choice to Operate the Point:")
+        print("Please Select One Choice to Operate the Cube:\n")
         input_data = get_input("1.setName     2.getName       3.getX\n4.getY    5.getArea    6.getVolume\n7.setX      "
-                               "8.setY \n 9.Back to higher menu"
-                               , (1, 9))
+                               "8.setY  9.getLength\n10.setLength   11.Back to higher menu\n"
+                               , (1, 11))
         if input_data == 1:
-            name = input("Please input Name")
+            name = input("Please input Name:")
             shape.setName(name)
         elif input_data == 2:
             print(shape.getName())
@@ -365,12 +415,16 @@ def shape_choice():
             y = get_input("Please type in y: ", (-100000, 100000), True)
             shape.setY(y)
         elif input_data == 9:
+            print(shape.getLength())
+        elif input_data == 10:
+            length = get_input("Please type in length: ", (-100000, 100000), True)
+            shape.setLength(length)
+        elif input_data == 11:
             view_shape_menu()
             return
         shape_choice()
     else:
         return
-
 
 
 def get_input(inputStr: str, input_range: tuple = (1,100), can_be_minus = False):
@@ -382,11 +436,18 @@ def get_input(inputStr: str, input_range: tuple = (1,100), can_be_minus = False)
         else:
             return int(input_data)
     else:
-        if not input_data.isdigit():
+        try:
+            input_data = float(input_data)
+            return input_data
+        except ValueError:
             print("Input Data must be a number")
             return get_input(inputStr, input_range, True)
-        else:
-            return input_data
+        #
+        # if not re.compile(r'^[-+]?[0-9]+\.[0-9]+$').match(input_data):
+        #     print("Input Data must be a number")
+        #     return get_input(inputStr, input_range, True)
+        # else:
+        #     return input_data
     pass
 
 
@@ -488,7 +549,6 @@ def view_shape_menu():
     print("Please Select One Choice to View Shapes")
     input_data = get_input("1.Select One Shape     2.View All Shapes   3.Back to higher menu \n", (1, 3))
     if input_data == 1:
-        print_all_shape()
         shape_choice()
     elif input_data == 2:
         print_all_shape()
